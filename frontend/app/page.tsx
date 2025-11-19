@@ -13,8 +13,8 @@ import Header from "@/components/sections/header"
 import { auth } from "@/lib/better-auth/auth"
 import { headers } from "next/headers"
 import AIChat from "@/components/sections/AI-chat"
-import { redirect } from "next/navigation"
-export default async function Page() {
+
+export default async function Home() {
   const session = await auth.api.getSession({ headers: await headers() });
 
   const user = (() => {
