@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google"
 import { Toaster } from "@/components/ui/sonner"
 import "./globals.css"
+import { AppContextProvider } from "@/context/AppContext"
 
 const geist = Geist({ subsets: ["latin"] })
 const geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -24,8 +25,10 @@ export default async function RootLayout({
       <body
         className={`${geist.className} bg-[#0C0C10] text-white antialiased selection:bg-cyan-400/20 selection:text-white`}
       >
-        {children}
-        <Toaster />
+        <AppContextProvider>
+          {children}
+          <Toaster />
+        </AppContextProvider>
       </body>
     </html>
   )
